@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+sitemap: http://womanclothing.top/sitemap.xml
+Host: womanclothing.top

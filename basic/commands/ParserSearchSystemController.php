@@ -10,6 +10,7 @@ namespace app\commands;
 use Yii;
 use yii\console\Controller;
 use yii\helpers\Console;
+use yii\helpers\Json;
 
 use app\models\Bing;
 use app\models\Yahoo;
@@ -20,6 +21,7 @@ use app\models\Ixquick;
 use app\models\Ask;
 use app\models\ScheduleParseSearch as Schedule;
 use app\models\SearchData;
+use app\models\SearchDataApi;
 
 /**
  * This command echoes the first argument that you have entered.
@@ -37,6 +39,7 @@ class ParserSearchSystemController extends BaseCommand
     
     public function actionIndex()
     {
+
         for (;;) { 
             $this->system_name = $this->ss()[rand(0,count($this->ss())-1)];
 
@@ -87,12 +90,43 @@ class ParserSearchSystemController extends BaseCommand
                     break;
             }
             if (empty($this->result) === false) {
+                $api = new SearchDataApi();
                 if (empty($schedule->product->searchData) === false) {
+                    foreach ($schedule->product->searchData as $singleSearchData) {
+                        $this->whisper($singleSearchData->id. ' is deleted');
+
+                        $delResponse = $api
+                            ->setUrl('http://womanclothing.top/search-data-apis/'.$singleSearchData->id.'?access-token=7Kb7IuoeA86BXnTFixzauJGdEnthJrDi')
+                            ->delete();
+                            
+                    }
+
                     $this->whisper('Delete old search data');
                     $schedule->product->deleteSearchData();
                 }
                 foreach ($this->result as $item) {
                     if (empty($item['title']) === false && empty($item['url']) === false && empty($item['snippet']) === false) {
+                        
+                        $api = new SearchDataApi();
+                        $response = $api
+                            ->setUrl('http://womanclothing.top/search-data-apis?access-token=7Kb7IuoeA86BXnTFixzauJGdEnthJrDi')
+                            ->create(
+                                [
+                                    //'access_token' => '7Kb7IuoeA86BXnTFixzauJGdEnthJrDi',
+                                    'product_id' => $schedule->product->id,
+                                    'name_ss' => $this->system_name,
+                                    'title' => $item['title'],
+                                    'url' => $item['url'],
+                                    'snippet' => $item['snippet']
+                                ]
+                            );
+                        
+                        $responseArray = Json::decode($response);
+                        if (empty($responseArray['product_id'])) {
+                            foreach ($responseArray as $error) {
+                                $this->error($error['message']);
+                            }
+                        }
                         $data = new SearchData();    
                         $data->product_id = $schedule->product->id;
                         $data->name_ss = $this->system_name;
@@ -113,6 +147,7 @@ class ParserSearchSystemController extends BaseCommand
             }else{
                 $this->error('Result is null');
             }
+            
             $sleep = rand(50,70);
             $this->whisper($sleep.' secs');
             sleep($sleep);

@@ -66,4 +66,9 @@ class SearchData extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Product::className(), ['id' => 'product_id']);
     }
+
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+        return User::findOne(['auth_key' => $token]);
+    }
 }

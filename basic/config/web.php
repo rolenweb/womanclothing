@@ -11,6 +11,9 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'UjUAwk8grBauCDdxIncJGcCboUWO88eJ',
             'baseUrl' => '',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -18,6 +21,7 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+            'loginUrl' => ['site/login']
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -56,6 +60,12 @@ $config = [
             'showScriptName' => false,
             'suffix' => '.html',
             'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'search-data-api',
+                    'suffix' => '',
+                    'only' => ['create','index','view','delete'],
+                ],
                 'p/<slug:[A-Za-z0-9 -_.]+>' => 'site/product',
                 [
                    'pattern'=>'sitemap-static-page',
@@ -84,6 +94,7 @@ $config = [
                 '<cat1:[A-Za-z0-9 -_.]+>/<cat2:[A-Za-z0-9 -_.]+>/' => 'site/index',
                 '<cat1:[A-Za-z0-9 -_.]+>/' => 'site/index',
                 '' => 'site/index',
+                
             ],
         ],
         
