@@ -264,57 +264,72 @@ class SiteController extends Controller
 
             ],
             [
-                'url' => Url::to(['site/sitemap-page','slug' => 'bottoms'],true),
+                'url' => Url::to(['site/sitemap-page','slug' => 'cardigans-sweaters'],true),
                 'lastMod' =>  date("Y-m-d H:i",$lastMod->updated_at)
 
             ],
             [
-                'url' => Url::to(['site/sitemap-page','slug' => 'dance-costumes'],true),
+                'url' => Url::to(['site/sitemap-page','slug' => 'hoodies'],true),
                 'lastMod' =>  date("Y-m-d H:i",$lastMod->updated_at)
 
             ],
             [
-                'url' => Url::to(['site/sitemap-page','slug' => 'denim'],true),
+                'url' => Url::to(['site/sitemap-page','slug' => 'jackets-coat'],true),
                 'lastMod' =>  date("Y-m-d H:i",$lastMod->updated_at)
 
             ],
             [
-                'url' => Url::to(['site/sitemap-page','slug' => 'dresses'],true),
+                'url' => Url::to(['site/sitemap-page','slug' => 'jeans'],true),
                 'lastMod' =>  date("Y-m-d H:i",$lastMod->updated_at)
 
             ],
             [
-                'url' => Url::to(['site/sitemap-page','slug' => 'intimates-lingerie'],true),
+                'url' => Url::to(['site/sitemap-page','slug' => 'long-sleeves'],true),
                 'lastMod' =>  date("Y-m-d H:i",$lastMod->updated_at)
 
             ],
             [
-                'url' => Url::to(['site/sitemap-page','slug' => 'jumpsuits-rompers'],true),
+                'url' => Url::to(['site/sitemap-page','slug' => 'mens-swimwear'],true),
                 'lastMod' =>  date("Y-m-d H:i",$lastMod->updated_at)
 
             ],
             [
-                'url' => Url::to(['site/sitemap-page','slug' => 'outerwear'],true),
+                'url' => Url::to(['site/sitemap-page','slug' => 'mens-tank-tops'],true),
                 'lastMod' =>  date("Y-m-d H:i",$lastMod->updated_at)
 
             ],
             [
-                'url' => Url::to(['site/sitemap-page','slug' => 'plus-size'],true),
+                'url' => Url::to(['site/sitemap-page','slug' => 'mens-underwear'],true),
                 'lastMod' =>  date("Y-m-d H:i",$lastMod->updated_at)
 
             ],
             [
-                'url' => Url::to(['site/sitemap-page','slug' => 'sweaters-cardigans'],true),
+                'url' => Url::to(['site/sitemap-page','slug' => 'pants'],true),
                 'lastMod' =>  date("Y-m-d H:i",$lastMod->updated_at)
 
             ],
             [
-                'url' => Url::to(['site/sitemap-page','slug' => 'swimwear'],true),
+                'url' => Url::to(['site/sitemap-page','slug' => 'shirts'],true),
                 'lastMod' =>  date("Y-m-d H:i",$lastMod->updated_at)
 
             ],
             [
-                'url' => Url::to(['site/sitemap-page','slug' => 'tops'],true),
+                'url' => Url::to(['site/sitemap-page','slug' => 'shorts'],true),
+                'lastMod' =>  date("Y-m-d H:i",$lastMod->updated_at)
+
+            ],
+            [
+                'url' => Url::to(['site/sitemap-page','slug' => 'suits-blazers'],true),
+                'lastMod' =>  date("Y-m-d H:i",$lastMod->updated_at)
+
+            ],
+            [
+                'url' => Url::to(['site/sitemap-page','slug' => 't-shirts'],true),
+                'lastMod' =>  date("Y-m-d H:i",$lastMod->updated_at)
+
+            ],
+            [
+                'url' => Url::to(['site/sitemap-page','slug' => 'vests-waistcoats'],true),
                 'lastMod' =>  date("Y-m-d H:i",$lastMod->updated_at)
 
             ],

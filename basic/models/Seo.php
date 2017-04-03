@@ -13,11 +13,11 @@ class Seo extends Model
 {
     public function metaTagIndex()
     {
-        Yii::$app->view->title = 'Women Clothing';
+        Yii::$app->view->title = 'Mens Clothing';
         Yii::$app->view->registerMetaTag(
             [
                 'name' => 'description',
-                'content' => 'Online shop fashion womens dresses, activewear, bottoms, dance costumes, denim, lingerie, jumpsuits, rompers from Womanclothing.top at amazingly cheap prices.',
+                'content' => 'Online shop fashion mens dresses, activewear, bottoms, dance costumes, denim, lingerie, jumpsuits, rompers from Womanclothing.top at amazingly cheap prices.',
             ]
         );
         Yii::$app->view->registerMetaTag(

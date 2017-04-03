@@ -40,7 +40,6 @@ class ParserController extends BaseCommand
     		$start = time();
     		$link = Link::findOne(['status' => Link::STATUS_WATING]);
 	        if (empty($link)) {
-	        	//$url = 'http://toyota-usa.epc-data.com/tacoma/';
 	        	$this->error('The link is null');
 	        	die;
 	        }else{
@@ -107,8 +106,8 @@ class ParserController extends BaseCommand
             $breadcrumbs[] = trim($name);
         }
         
-        if (!in_array('Women',$breadcrumbs)) {
-            $this->error('Women is not found in breadcrumbs');
+        if (!in_array('Men',$breadcrumbs)) {
+            $this->error('Men is not found in breadcrumbs');
             return;
         }
     	return $breadcrumbs;

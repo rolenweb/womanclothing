@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\helpers\StringHelper;
 
 if (empty($product->category->parent) === false) {
-	if ($product->category->parent->slug !== 'women') {
+	if ($product->category->parent->slug !== 'men') {
 		$this->params['breadcrumbs'][] = ['label' => $product->category->parent->title, 'url' => ['site/index','cat1' => $product->category->parent->slug]];
 		$this->params['breadcrumbs'][] = ['label' => $product->category->title, 'url' => ['site/index','cat1' => $product->category->parent->slug,'cat2' => $product->category->slug]];
 	}else{

@@ -6,7 +6,7 @@
 if (empty($category->current) === false) {
     //$this->title = $category->current->title;
     if (empty($category->current->parent) === false) {
-        if ($category->current->parent->slug !== 'women') {
+        if ($category->current->parent->slug !== 'men') {
             $this->params['breadcrumbs'][] = ['label' => $category->current->parent->title, 'url' => ['site/index','cat1' => $category->current->parent->slug]];
         }
     }

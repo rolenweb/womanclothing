@@ -137,18 +137,18 @@ class Category extends \yii\db\ActiveRecord
 
     public function seo()
     {
-        Yii::$app->view->title = 'Women '.strtolower($this->current->title);
+        Yii::$app->view->title = 'Mens '.strtolower($this->current->title);
         
         Yii::$app->view->registerMetaTag(
             [
                 'name' => 'description',
-                'content' => 'Online shop fashion womens '.strtolower($this->current->title).' from Womanclothing.top at amazingly cheap prices.',
+                'content' => 'Online shop fashion mens '.strtolower($this->current->title).' from menclothing.top at amazingly cheap prices.',
             ]
         );
         Yii::$app->view->registerMetaTag(
             [
                 'name' => 'keywords',
-                'content' => 'women '.strtolower($this->current->title).', '.strtolower($this->current->title).' women online',
+                'content' => 'mens '.strtolower($this->current->title).', '.strtolower($this->current->title).' mens online',
             ]
         );
         
@@ -162,7 +162,7 @@ class Category extends \yii\db\ActiveRecord
         Yii::$app->view->registerMetaTag(
             [
                 'name' => 'og:title',
-                'content' => 'Women '.strtolower($this->current->title),
+                'content' => 'Mens '.strtolower($this->current->title),
             ]
         );
 
@@ -185,7 +185,7 @@ class Category extends \yii\db\ActiveRecord
 
     public function currentUrl()
     {
-        if ($this->current->parent->slug === 'women') {
+        if ($this->current->parent->slug === 'men') {
             return Url::to(['site/index','cat1' => $this->current->slug],true);
         }else{
             return Url::to(['site/index','cat1' => $this->current->parent->slug,'cat2' => $this->current->slug],true);
