@@ -192,7 +192,7 @@ class Product extends \yii\db\ActiveRecord
         Yii::$app->view->registerMetaTag(
             [
                 'name' => 'description',
-                'content' => 'Online shop fashion womens '.strtolower($this->category->title).'. '.$this->title.' at amazingly cheap prices.',
+                'content' => 'Online shop fashion mens '.strtolower($this->category->title).'. '.$this->title.' at amazingly cheap prices.',
             ]
         );
         Yii::$app->view->registerMetaTag(

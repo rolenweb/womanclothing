@@ -69,8 +69,11 @@ AppAsset::register($this);
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; Women Clothing <?= date('Y') ?></p>
-
         <p class="pull-right powered"><?= Html::a(Html::img('@web/image/parsingweb.png', ['alt' => 'Parsing Web','class' => 'logo']),'http://parsingweb.ru')  ?></p>
+        
+    </div>
+    <div class="container address">
+        <p>1 First American Way, Santa Ana, CA, 92707</p>
     </div>
 </footer>
 

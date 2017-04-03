@@ -17,13 +17,13 @@ class Seo extends Model
         Yii::$app->view->registerMetaTag(
             [
                 'name' => 'description',
-                'content' => 'Online shop fashion mens dresses, activewear, bottoms, dance costumes, denim, lingerie, jumpsuits, rompers from Womanclothing.top at amazingly cheap prices.',
+                'content' => 'Online shop fashion mens activewear, cardigans, sweaters, hoodies, long sleeves, jackets, coat, vests, waistcoats from Menclothing.top at amazingly cheap prices.',
             ]
         );
         Yii::$app->view->registerMetaTag(
             [
                 'name' => 'keywords',
-                'content' => 'women fashion clothes, clothes women online, clothing dresses women, women clothes plus size, women clothing shop',
+                'content' => 'mens fashion clothes, clothes mens online, clothing activewear mens, mens jackets, mens clothing shop',
             ]
         );
         
@@ -37,7 +37,7 @@ class Seo extends Model
         Yii::$app->view->registerMetaTag(
             [
                 'name' => 'og:title',
-                'content' => 'Women Clothing',
+                'content' => 'Mens Clothing',
             ]
         );
 

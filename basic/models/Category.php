@@ -137,18 +137,35 @@ class Category extends \yii\db\ActiveRecord
 
     public function seo()
     {
-        Yii::$app->view->title = 'Mens '.strtolower($this->current->title);
+        switch ($this->current->slug) {
+            case 'mens-swimwear':
+                $title = $this->current->title;
+                break;
+
+            case 'mens-tank-tops':
+                $title = $this->current->title;
+                break;
+
+            case 'mens-underwea':
+                $title = $this->current->title;
+                break;
+            
+            default:
+                $title = 'Mens '.strtolower($this->current->title);
+                break;
+        }
+        Yii::$app->view->title = $title;
         
         Yii::$app->view->registerMetaTag(
             [
                 'name' => 'description',
-                'content' => 'Online shop fashion mens '.strtolower($this->current->title).' from menclothing.top at amazingly cheap prices.',
+                'content' => 'Online shop fashion '.strtolower($title).' from menclothing.top at amazingly cheap prices.',
             ]
         );
         Yii::$app->view->registerMetaTag(
             [
                 'name' => 'keywords',
-                'content' => 'mens '.strtolower($this->current->title).', '.strtolower($this->current->title).' mens online',
+                'content' => strtolower($title),
             ]
         );
         
@@ -162,7 +179,7 @@ class Category extends \yii\db\ActiveRecord
         Yii::$app->view->registerMetaTag(
             [
                 'name' => 'og:title',
-                'content' => 'Mens '.strtolower($this->current->title),
+                'content' => $title,
             ]
         );
 
