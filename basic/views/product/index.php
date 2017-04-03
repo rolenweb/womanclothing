@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             //'source_url:url',
             'title',
+            'slug',
             'star',
             'info_tips',
             'current_price',

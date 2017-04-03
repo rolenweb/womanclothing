@@ -66,6 +66,22 @@ $config = [
                     'suffix' => '',
                     'only' => ['create','index','view','delete'],
                 ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'search-data-shedule-api',
+                    'suffix' => '',
+                    'only' => ['view','update'],
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'product-api',
+                    'suffix' => '',
+                    'only' => ['search-data','view','next'],
+                    'extraPatterns' => [
+                        'GET search-data/<id>' => 'search-data',
+                        'GET next/<id>' => 'next',
+                    ],
+                ],
                 'p/<slug:[A-Za-z0-9 -_.]+>' => 'site/product',
                 [
                    'pattern'=>'sitemap-static-page',

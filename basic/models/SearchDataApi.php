@@ -15,15 +15,20 @@ class SearchDataApi extends Model
     public $curl;
     public $result;
 
+
     public function __construct($config = [])
     {
         $this->scenario = (empty($config['scenario']) === false) ? $config['scenario'] : 'default';
         $this->curl = curl_init();
     }
 
-    public function setUrl($url)
+    public function setUrl($data)
     {
-        $this->url = $url;
+        if (empty($data['id'])) {
+            $this->url = $data['endpoint'].'?access-token='.$data['token'];
+        }else{
+            $this->url = $data['endpoint'].$data['id'].'?access-token='.$data['token'];
+        }
         return $this;
     }
     
@@ -66,8 +71,13 @@ class SearchDataApi extends Model
         curl_setopt($this->curl, CURLOPT_POST, 1);
         return curl_exec($this->curl);
     }
-    
-    
+
+    public function view()
+    {
+        curl_setopt($this->curl, CURLOPT_URL, $this->url);
+        $this->result = curl_exec($this->curl);
+        return $this;
+    }
 
     public function __destruct()
     {

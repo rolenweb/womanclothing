@@ -20,6 +20,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <?= $this->registerLinkTag(['rel' => 'shortcut icon', 'href' => '/favicon.ico']); ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
