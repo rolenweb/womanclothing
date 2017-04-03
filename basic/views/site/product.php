@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
         		<?php foreach ($similars as $similar): ?>
         			<div class="col-sm-6 col-md-4 col-lg-2">
 					    <div class="thumbnail">
-					    	<?= Html::a(Html::img($similar->imageUrl, ['alt' => $similar->title]),['site/product','slug' => $similar->slug],['role' => 'button','title' => $similar->title]) ?>
+					    	<?= Html::a(Html::img($similar->imageUrl, ['alt' => $similar->title,'class' => 'height-150']),['site/product','slug' => $similar->slug],['role' => 'button','title' => $similar->title]) ?>
 					     	
 					      	<div class="caption">
 					        	<h3><?= StringHelper::truncate($similar->title,10) ?></h3>
