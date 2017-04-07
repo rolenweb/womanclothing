@@ -30,8 +30,22 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'url:url',
             // 'snippet:ntext',
-            // 'created_at',
-            // 'updated_at',
+            [
+                'attribute'=>'created_at',
+                'label' => 'Created',
+                'content'=>function($data){
+                    return date("d/m/Y H:i:s",$data->created_at);
+                }
+                
+            ],
+            [
+                'attribute'=>'updated_at',
+                'label' => 'Updated',
+                'content'=>function($data){
+                    return date("d/m/Y H:i:s",$data->updated_at);
+                }
+                
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
